@@ -1,0 +1,41 @@
+#map {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 2rem;
+}
+
+#cluster-map {
+    width: 100%;
+    height: 500px;
+}
+
+.custom-cluster-icon {
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.the-flash-msg {
+    width: 60%;
+    position: absolute;
+    top: 60px;
+    left: 20%;
+    z-index: 1050;
+}
+
+body {
+    background-color: #F8F8FF;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}

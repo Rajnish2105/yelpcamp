@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Review = require('./review');
-const { string, required } = require('joi');
 const Schema = mongoose.Schema;         //shortcut
 
 const imageSchema = new Schema(

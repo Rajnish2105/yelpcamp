@@ -5,17 +5,9 @@
     </div>
     <% } %>
 
-
         <% if(error && error.length) {%>
             <div id="flash" class="alert alert-danger alert-dismissible fade show" role="alert">
                 <%= error %>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             <% } %>
-
-                <!-- <script>
-                    const div = document.querySelector('#flash');
-                    setTimeout(() => {
-                        div.style.display = 'none';
-                    }, 4000);
-                </script> -->

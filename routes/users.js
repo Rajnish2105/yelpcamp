@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const passport = require('passport');
-const { storeReturnTo } = require('../middleware');
+const { storeReturnTo, isLoggedIn } = require('../middleware');
 
 //controller
 const users = require('../controllers/users');
@@ -22,5 +22,7 @@ router.route('/login')
     .post(storeReturnTo, passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), users.login)
 
 router.get('/logout', users.logout);
+
+router.get('/user', isLoggedIn, users.info);
 
 module.exports = router;

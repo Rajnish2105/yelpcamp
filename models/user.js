@@ -1,3 +1,4 @@
+const Campground = require("./campground")
 const mongoose = require('mongoose');
 const passportLocalMongoose = require('passport-local-mongoose');
 const Schema = mongoose.Schema;
@@ -10,7 +11,7 @@ const userSchema = new Schema({
     }
 });
 
-//this line will add usename password on out model
+//this line will add usename password on our model
 userSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('User', userSchema);

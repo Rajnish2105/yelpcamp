@@ -1,4 +1,6 @@
 const User = require('../models/user');
+const Campground = require("../models/campground")
+
 
 module.exports.renderRegister = (req, res) => {
     res.render('users/register')
@@ -39,4 +41,11 @@ module.exports.logout = (req, res) => {
         req.flash('success', 'Goodbye!');
         res.redirect('/campgrounds');
     });
+}
+
+module.exports.info = async (req, res, next) => {
+    const user = req.user;
+    const campgrounds = await Campground.find({}).populate('author');
+    const myCampgrounds = campgrounds.filter(camp => camp.author.username === user.username)
+    res.render('campgrounds/user', { user, myCampgrounds })
 }

@@ -45,7 +45,6 @@ module.exports.logout = (req, res) => {
 
 module.exports.info = async (req, res, next) => {
     const user = req.user;
-    const campgrounds = await Campground.find({}).populate('author');
-    const myCampgrounds = campgrounds.filter(camp => camp.author.username === user.username)
-    res.render('campgrounds/user', { user, myCampgrounds })
+    const campgrounds = await Campground.find({ author: user._id }).populate('author');
+    res.render('campgrounds/user', { user, campgrounds })
 }

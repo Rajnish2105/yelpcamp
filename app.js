@@ -128,7 +128,7 @@ app.use(
                 "'self'",
                 "blob:",
                 "data:",
-                "https://res.cloudinary.com/dnhsfzts3/",
+                "https://res.cloudinary.com/",
                 "https://unpkg.com/leaflet@1.9.4/dist/",
                 "https://images.unsplash.com/",
                 "https://a.basemaps.cartocdn.com/",

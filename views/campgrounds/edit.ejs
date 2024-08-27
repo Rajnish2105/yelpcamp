@@ -69,7 +69,7 @@
     <script>
         const imgUploadLimit = document.querySelector('#image');
         imgUploadLimit.addEventListener('change', () => {
-            const campground = <% - JSON.stringify(campground) %>;
+            const campground = <%- JSON.stringify(campground) %>;
             const maxFiles = 5 - (campground.images ? campground.images.length : 0);
             const msg = document.querySelector('.message');
             msg.style.color = 'red';

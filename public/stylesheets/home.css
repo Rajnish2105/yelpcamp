@@ -54,6 +54,7 @@ body {
         position: relative;
         left: -24vw;
         width: 100vw;
+        padding: 0 15px;
     }
 
     a.btn {

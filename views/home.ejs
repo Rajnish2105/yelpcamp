@@ -15,9 +15,15 @@
 <body class="d-flex text-center text-white bg-dark">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="mb-auto">
-            <div>
+            <div class="navbar navbar-expand-lg">
                 <h3 class="float-md-start mb-0">YelpCamp</h3>
-                <nav class="nav nav-masthead justify-content-center float-md-end">
+                <button class="navbar-toggler border border-2 border-white rounded-3" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <nav class="nav nav-masthead justify-content-end float-md-end collapse navbar-collapse"
+                    id="navbarNavAltMarkup">
                     <a href="#" class="nav-link active" aria-current="page">Home</a>
                     <a href="/campgrounds" class="nav-link">Campgrounds</a>
                     <% if(!currentUser) {%>
@@ -31,10 +37,14 @@
         </header>
 
         <main class="px-3">
-            <h1>YelpCamp</h1>
-            <p class="lead"> Welcome to YelpCamp <br> Jump right in and explore our many campgrounds. Feel free to share
+            <h1 class="display-sm-4">YelpCamp</h1>
+            <p class="lead custom-paragraph"> Welcome to YelpCamp <br> Jump right in and explore our many
+                campgrounds. Feel
+                free
+                to share
                 some of your own and give your precious review on the campgrounds who's services were best. <br> We are
-                here to make camping stay easy and comfortable.</p>
+                here to make camping stay easy and comfortable.
+            </p>
             <a href="/campgrounds" class="btn btn-lg btn-secondary fw-bold bg-white">View
                 Campgrounds</a>
         </main>
@@ -42,9 +52,6 @@
         <footer class="mt-auto text-white-50">
             <p>&copy; 2024 YelpCamp</p>
         </footer>
-
-
-
     </div>
 
 

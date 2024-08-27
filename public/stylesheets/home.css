@@ -35,3 +35,28 @@ body {
     color: #333;
     text-shadow: none;
 }
+
+@media (max-width: 576px) {
+
+    .main {
+        position: relative;
+        place-content: center;
+    }
+
+    .custom-paragraph {
+        font-size: 18px;
+        width: 95vw;
+        position: relative;
+        left: -24vw;
+    }
+
+    header {
+        position: relative;
+        left: -24vw;
+        width: 100vw;
+    }
+
+    a.btn {
+        transform: scale(0.7);
+    }
+}

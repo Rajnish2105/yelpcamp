@@ -1,0 +1,167 @@
+/* Navbar base styles */
+.navbar {
+  padding: 0.8rem 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Brand styling */
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.4rem;
+  position: relative;
+  padding: 0.5rem 0;
+  background: linear-gradient(120deg, #fff 50%, #4caf50 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  background-position: 100%;
+  transform: translateX(3px);
+}
+
+/* Nav links styling */
+.nav-link {
+  position: relative;
+  padding: 0.5rem 1rem !important;
+  margin: 0 0.2rem;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #4caf50;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 70%;
+}
+
+.nav-link:hover {
+  color: #4caf50 !important;
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+/* Active link state */
+.nav-link.active {
+  color: #4caf50 !important;
+  background-color: rgba(76, 175, 80, 0.15);
+}
+
+.nav-link.active::after {
+  width: 70%;
+}
+
+/* Toggler button styling */
+.navbar-toggler {
+  border: none;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: 2px solid #4caf50;
+  outline-offset: 2px;
+}
+
+/* Toggler icon animation */
+.navbar-toggler-icon {
+  background-image: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+  top: 8px;
+}
+
+.navbar-toggler-icon::after {
+  bottom: 8px;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+/* Collapse animation */
+.navbar-collapse {
+  transition: all 0.3s ease;
+}
+
+/* Special buttons styling */
+.nav-link[href="/login"],
+.nav-link[href="/register"] {
+  transition: all 0.3s ease;
+}
+
+.nav-link[href="/login"]:hover,
+.nav-link[href="/register"]:hover {
+  background-color: rgba(76, 175, 80, 0.2);
+  transform: translateY(-2px);
+}
+
+/* User-related links */
+.nav-link[href="/user"],
+.nav-link[href="/logout"] {
+  transition: all 0.3s ease;
+}
+
+.nav-link[href="/user"] {
+  position: relative;
+}
+
+/* New campground button special styling */
+.nav-link[href="/campgrounds/new"] {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link[href="/campgrounds/new"]::before {
+  content: "🏕️";
+  position: absolute;
+  left: -20px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.nav-link[href="/campgrounds/new"]:hover::before {
+  left: 8px;
+  opacity: 1;
+}
+
+.nav-link[href="/campgrounds/new"]:hover {
+  padding-left: 2rem !important;
+}
+
+/* Scroll effect */
+.navbar.scrolled {
+  background: rgba(33, 37, 41, 0.98) !important;
+  backdrop-filter: blur(10px);
+}

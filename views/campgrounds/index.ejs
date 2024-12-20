@@ -1,43 +1,38 @@
 <% layout('layouts/boilerplate') %>
-    <div id="cluster-map" class="shadow"></div>
+<div id="cluster-map" class="shadow"></div>
 
-    <div class="container mt-5">
+<div class="container mt-5">
+  <h1>All Campgrounds</h1>
 
-        <h1>All Campgrounds</h1>
-
-        <% for(let campground of campgrounds) {%>
-            <div class="card mb-3">
-                <div class="row">
-                    <div class="col-md-4">
-                        <% if(campground.images.length) {%>
-                            <img class="img-fluid" src="<%=campground.images[0].url%>">
-                            <% } else {%>
-                                <img class="img-fluid" src="" alt="">
-                                <% } %>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <%=campground.title%>
-                            </h5>
-                            <p class="card-text">
-                                <%=campground.description%>
-                            </p>
-                            <p class="card-text">
-                                <small class="text-secondary">
-                                    <%=campground.location%>
-                                </small>
-                            </p>
-                            <a class="btn btn-primary" href="/campgrounds/<%=campground._id%>">more..</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <% } %>
+  <% for(let campground of campgrounds) {%>
+  <div class="card mb-3 rounded overflow-hidden">
+    <div class="row">
+      <div class="col-md-4">
+        <% if(campground.images.length) {%>
+        <img class="img-fluid" src="<%=campground.images[0].url%>" />
+        <% } else {%>
+        <img class="img-fluid" src="" alt="" />
+        <% } %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%=campground.title%></h5>
+          <p class="card-text"><%=campground.description%></p>
+          <p class="card-text">
+            <small class="text-secondary"> <%=campground.location%> </small>
+          </p>
+          <a class="btn btn-primary" href="/campgrounds/<%=campground._id%>"
+            >more..</a
+          >
+        </div>
+      </div>
     </div>
+  </div>
+  <% } %>
+</div>
 
-    <script>
-        const campgrounds = <%- JSON.stringify(campgrounds) %>
-    </script>
-    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
-    <script src="/javascripts/clusterMap.js"></script>
+<script>
+  const campgrounds = <%- JSON.stringify(campgrounds) %>
+</script>
+<script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+<script src="/javascripts/clusterMap.js"></script>

@@ -1,44 +1,80 @@
 <% layout('layouts/boilerplate') %>
 
-    <link rel="stylesheet" href="stylesheets/user.css">
+<link rel="stylesheet" href="stylesheets/user.css" />
 
-    <div class="User-name">
-        <h1>
-            <%= user.username %>
-        </h1>
+<div class="user-header">
+  <div class="content-wrapper">
+    <h1 class="display-2 fw-bold"><%= user.username %>'s Profile</h1>
+    <p class="lead text-white">Discover the adventures I've shared</p>
+  </div>
+</div>
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12">
+      <% if(campgrounds.length) { %>
+      <h2 class="section-title">My Campground Collection</h2>
+      <p class="text-muted mb-4">
+        Exploring the great outdoors, one campground at a time
+      </p>
+      <% } else { %>
+      <div class="text-center py-5">
+        <h2 class="section-title">Start Your Camping Journey</h2>
+        <p class="text-muted mb-4">
+          Share your first campground with the community
+        </p>
+        <a href="/campgrounds/new" class="btn btn-primary btn-lg"
+          >Create Campground</a
+        >
+      </div>
+      <% } %>
     </div>
+  </div>
 
-    <div class="container mt-5">
-
-        <% if(campgrounds.length) {%>
-            <h2>All My Campgrounds</h2>
-            <% }else {%>
-                <h2>You are yet to Make a Campground</h2>
-                <% } %>
-
-                    <% for(let campground of campgrounds) {%>
-                        <div class="card mb-3">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <% if(campground.images.length) {%>
-                                        <img class="img-fluid" src="<%=campground.images[0].url%>">
-                                        <% } else {%>
-                                            <img class="img-fluid" src="" alt="">
-                                            <% } %>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">
-                                            <%=campground.title%>
-                                        </h5>
-                                        <p class="card-text">
-                                            <%=campground.description%>
-                                        </p>
-                                        <a class="btn btn-primary" href="/campgrounds/<%=campground._id%>">more..</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <% } %>
-
+  <div class="row g-4">
+    <% for(let campground of campgrounds) { %>
+    <div class="col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm hover-card">
+        <div class="card-img-wrapper">
+          <% if(campground.images.length) { %>
+          <img
+            class="card-img-top"
+            src="<%=campground.images[0].url%>"
+            alt="<%=campground.title%>"
+          />
+          <% } else { %>
+          <img
+            class="card-img-top"
+            src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4"
+            alt="Default campground image"
+          />
+          <% } %>
+          <div class="card-img-overlay d-flex align-items-end">
+            <div class="overlay-content w-100">
+              <h5 class="card-title text-white mb-0"><%=campground.title%></h5>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-text text-muted">
+            <%=campground.description.substring(0, 100)%>...
+          </p>
+          <div class="d-flex justify-content-between align-items-center">
+            <a
+              class="btn btn-outline-primary"
+              href="/campgrounds/<%=campground._id%>"
+            >
+              View Details
+              <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+            <small class="text-muted">
+              <i class="fas fa-map-marker-alt me-1"></i>
+              <%=campground.location%>
+            </small>
+          </div>
+        </div>
+      </div>
     </div>
+    <% } %>
+  </div>
+</div>
